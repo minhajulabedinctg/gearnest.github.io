@@ -8,6 +8,9 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <style>
         * {
             margin: 0;
@@ -20,28 +23,20 @@
             background: #f5f5f5;
         }
 
-        /* Header */
         header {
             background: #000;
             color: white;
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 22px;
         }
 
         nav a {
             color: white;
             margin: 0 10px;
             text-decoration: none;
-            font-size: 14px;
         }
 
-        /* Banner */
         .banner {
             background: linear-gradient(to right, #ff7a00, #ffb347);
             color: white;
@@ -49,20 +44,10 @@
             text-align: center;
         }
 
-        .banner h2 {
-            font-size: 32px;
-        }
-
-        /* Section */
         .section {
             padding: 40px 50px;
         }
 
-        .section h3 {
-            margin-bottom: 20px;
-        }
-
-        /* Product Grid */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -74,23 +59,12 @@
             padding: 15px;
             border-radius: 10px;
             text-align: center;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .card img {
             width: 100%;
             height: 150px;
             object-fit: contain;
-        }
-
-        .card h4 {
-            font-size: 14px;
-            margin: 10px 0;
         }
 
         .price {
@@ -106,10 +80,17 @@
             color: white;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 13px;
         }
 
-        /* Footer */
+        /* Swiper */
+        .swiper {
+            padding: 20px 0;
+        }
+
+        .swiper-slide {
+            width: 250px;
+        }
+
         footer {
             background: #000;
             color: white;
@@ -119,109 +100,120 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- Header -->
 <header>
-    <h1>Gadget Store</h1>
+    <h2>Gadget Store</h2>
     <nav>
         <a href="#">Home</a>
         <a href="#">Shop</a>
         <a href="#">Accessories</a>
-        <a href="#">Contact</a>
     </nav>
 </header>
 
-<!-- Banner -->
 <section class="banner">
     <h2>1 Month Free Subscription</h2>
     <p>On All Starlink Kits</p>
 </section>
 
-<!-- Exclusive Section -->
+<!-- 🔥 PRODUCT SLIDER -->
 <section class="section">
-    <h3>Exclusive</h3>
-    <div class="products">
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>iPhone 15 Pro</h4>
-            <p class="price">৳1,50,000</p>
-            <a href="#" class="btn">Buy Now</a>
+    <h3>Featured Products</h3>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide card">
+                <img src="https://via.placeholder.com/150">
+                <h4>iPhone 15 Pro</h4>
+                <p class="price">৳1,50,000</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="swiper-slide card">
+                <img src="https://via.placeholder.com/150">
+                <h4>Samsung S24 Ultra</h4>
+                <p class="price">৳1,30,000</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="swiper-slide card">
+                <img src="https://via.placeholder.com/150">
+                <h4>AirPods Pro</h4>
+                <p class="price">৳30,000</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="swiper-slide card">
+                <img src="https://via.placeholder.com/150">
+                <h4>Smart Watch</h4>
+                <p class="price">৳12,000</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
         </div>
 
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Samsung S24 Ultra</h4>
-            <p class="price">৳1,30,000</p>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>AirPods Pro</h4>
-            <p class="price">৳30,000</p>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Smart Watch</h4>
-            <p class="price">৳12,000</p>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 
-<!-- Featured Section -->
-<section class="section">
-    <h3>Featured Categories</h3>
-    <div class="products">
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Mobiles</h4>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Laptops</h4>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Accessories</h4>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Gaming</h4>
-        </div>
-    </div>
-</section>
-
-<!-- Top Selling -->
+<!-- NORMAL PRODUCTS -->
 <section class="section">
     <h3>Top Selling</h3>
     <div class="products">
         <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Gaming Headphone</h4>
+            <img src="https://via.placeholder.com/150">
+            <h4>Headphone</h4>
             <p class="price">৳5,000</p>
-            <a href="#" class="btn">Buy Now</a>
         </div>
 
         <div class="card">
-            <img src="https://via.placeholder.com/150" alt="">
-            <h4>Bluetooth Speaker</h4>
+            <img src="https://via.placeholder.com/150">
+            <h4>Speaker</h4>
             <p class="price">৳3,500</p>
-            <a href="#" class="btn">Buy Now</a>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    <p>© 2026 Gadget Store | All Rights Reserved</p>
+    <p>© 2026 Gadget Store</p>
 </footer>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+
+    breakpoints: {
+        320: { slidesPerView: 1 },
+        576: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 }
+    }
+});
+</script>
 
 </body>
 </html>
