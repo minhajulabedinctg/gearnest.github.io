@@ -3,45 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GearNest - Home</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <title>GearNest - Online Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="top-bar text-center py-2">🔥 GearNest | Fast Delivery | COD Available</div>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="index.html">GearNest</a>
-    <div>
-      <a href="shop.html" class="text-white me-3">Shop</a>
-      <a href="contact.html" class="text-white">Contact</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"></button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <a href="cart.html" class="btn btn-success">Cart (<span id="cartCount">0</span>)</a>
     </div>
   </div>
 </nav>
 
-<header class="bg-light text-center p-5">
-  <h1>Welcome to GearNest</h1>
-  <p>Best Gadgets in Bangladesh</p>
-</header>
+<!-- HERO -->
+<div class="container my-4">
+  <div class="p-5 bg-light rounded">
+    <h1>Start Shopping Smart</h1>
+    <p>Best gadgets at lowest price in Bangladesh</p>
+    <a href="shop.html" class="btn btn-dark">Shop Now</a>
+  </div>
+</div>
 
-<section class="container my-5">
-  <h3>Trending Products</h3>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card">
-        <img src="assets/img/products/fan.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Mini Turbo Fan</h5>
-          <a href="product-details.html" class="btn btn-primary">View</a>
+<!-- PRODUCTS -->
+<div class="container my-5">
+  <h3>🔥 Trending Products</h3>
+  <div class="row g-4" id="productList"></div>
+</div>
+
+<script>
+const products = [
+  {id:1,name:"Mini Fan",price:990,img:"assets/img/products/p1.jpg"},
+  {id:2,name:"Airpods Pro",price:1990,img:"assets/img/products/p2.jpg"}
+];
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCart(){
+  document.getElementById("cartCount").innerText = cart.length;
+  localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function addToCart(id){
+  const item = products.find(p=>p.id===id);
+  cart.push(item);
+  updateCart();
+}
+
+function loadProducts(){
+  const box = document.getElementById("productList");
+  box.innerHTML = "";
+
+  products.forEach(p=>{
+    box.innerHTML += `
+      <div class="col-md-3">
+        <div class="product-card p-3">
+          <img src="${p.img}" class="w-100">
+          <h6 class="mt-2">${p.name}</h6>
+          <p class="price">৳${p.price}</p>
+          <button onclick="addToCart(${p.id})" class="btn btn-success w-100">Add To Cart</button>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    `;
+  });
+}
 
-<footer class="bg-dark text-white text-center p-3">
-  © GearNest 2026
-</footer>
+loadProducts();
+updateCart();
+</script>
 
 </body>
 </html>
