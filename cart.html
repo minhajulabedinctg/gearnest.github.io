@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart - GearNest</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container my-5">
+  <h2>Your Cart</h2>
+  <div id="cartBox"></div>
+  <button onclick="checkout()" class="btn btn-success mt-3">Checkout via WhatsApp</button>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart(){
+  let box = document.getElementById("cartBox");
+  box.innerHTML = "";
+
+  cart.forEach(i=>{
+    box.innerHTML += `<p>${i.name} - ৳${i.price}</p>`;
+  });
+}
+
+function checkout(){
+  let msg = "Order:\n";
+  cart.forEach(i=> msg += i.name + " - " + i.price + "\n");
+  let url = "https://wa.me/8801XXXXXXXXX?text=" + encodeURIComponent(msg);
+  window.open(url,"_blank");
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
+
+/* ===================== FILE: shop.html ===================== */
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+  <h2>Shop All Products</h2>
+  <a href="index.html">Back Home</a>
+</div>
+</body>
+</html>
