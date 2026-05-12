@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop - GearNest</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Shop</h2>
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('fan')">Fan</button>
+
+  <div class="row mt-3">
+    <div class="col-md-3 product-item fan">
+      <div class="card">
+        <img src="assets/img/products/fan.jpg">
+        <div class="card-body">
+          Mini Fan
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function filterProducts(category) {
+  let items = document.querySelectorAll('.product-item');
+  items.forEach(i => {
+    if(category==='all'||i.classList.contains(category)){
+      i.style.display='block';
+    } else {
+      i.style.display='none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
